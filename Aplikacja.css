@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+/* --- Globalne style --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+    padding-top: 0; /* Domyślny padding-top dla body, będzie zmieniony dla strony z czatem */
+}
+
+/* --- Style dla strony powitalnej (index.html) --- */
+/* Te style będą stosowane, gdy body NIE ma klasy "chat-page" */
+body:not(.chat-page) {
+    background: linear-gradient(to bottom, #8a2be2, #1b013a); /* Gradient z powitalnej */
+    align-items: center; /* Wyśrodkowanie pionowe dla strony powitalnej */
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.logo {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    justify-content: center; /* Wyśrodkuj logo */
+    margin-bottom: 20px; /* Dodaj odstęp pod logo */
+}
+
+.container h1 { /* Specyficzny h1 dla strony powitalnej */
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px; /* Odstęp pod nagłówkiem */
+}
+
+.container p { /* Specyficzny p dla strony powitalnej */
+    font-size: 18px;
+    font-weight: 300;
+    color: #ff69b4;
+    margin-bottom: 20px; /* Odstęp pod paragrafem */
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #8a2be2, #ff69b4);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.graphics { /* Nie widzę, żeby ta klasa była używana w Twoim HTMLu, ale zostawiłem */
+    margin-top: 30px;
+}
+
+.graphics img { /* Podobnie, jeśli planujesz użyć */
+    width: 100px;
+    margin: 10px;
+}
+
+/* --- Style dla strony generatora (ApkaWebowa2.html) --- */
+/* Te style będą stosowane, gdy body MA klasę "chat-page" */
+body {
+    background: linear-gradient(to bottom, #1b013a, #8a2be2); /* Odwrócony gradient dla kontrastu */
+    align-items: flex-start; /* Ustawienie zawartości od góry */
+    padding-top: 5vh; /* Ogólny odstęp od góry dla całej strony */
+}
+
+.chat-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    max-width: 700px;
+    width: 90%; /* Zmienione z 100% dla lepszego marginesu na małych ekranach */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 0; /* Kontener zaczyna się od góry wewnątrz padding-top z body.chat-page */
+}
+
+.chat-container h1 {
+    font-size: 38px;
+    margin-top: 0; /* Nagłówek u samej góry kontenera */
+    margin-bottom: 25px; /* Odstęp pod nagłówkiem */
+    color: #ff69b4;
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+}
+
+textarea {
+    width: calc(100% - 30px); /* Szerokość z uwzględnieniem paddingu, możesz dostosować */
+    height: 200px; /* **Zwiększona wysokość pola tekstowego** */
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #8a2be2;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15); /* **Półprzezroczyste tło** */
+    color: white; /* Tekst wpisywany przez użytkownika będzie biały */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    resize: vertical; /* Pozwól użytkownikowi zmieniać wysokość */
+    outline: none; /* Usuń domyślne obramowanie po kliknięciu */
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Kolor tekstu placeholderu, żeby był widoczny */
+}
+
+.btn-generate { /* Klasa dla przycisku generującego */
+    margin-top: 15px;
+    padding: 15px 35px;
+    background: linear-gradient(to right, #ff69b4, #8a2be2); /* Odwrócony gradient przycisku */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-generate:hover {
+    transform: translateY(-3px) scale(1.05); /* Lekkie uniesienie i powiększenie */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+#ciekawostkaOutput {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.1); /* Lekko przezroczyste tło wyniku */
+    border: 1px dashed rgba(255, 255, 255, 0.4); /* Przerywana ramka */
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1.1em;
+    color: #f0f0f0; /* Jasny szary tekst */
+    min-height: 150px; /* Większa minimalna wysokość */
+    display: flex; /* Użyj flexboxa do centrowania tekstu pionowo */
+    align-items: center; /* Wyśrodkuj pionowo */
+    justify-content: center; /* Wyśrodkuj poziomo */
+    white-space: pre-wrap; /* Zachowuje formatowanie tekstu z AI */
+    line-height: 1.6; /* Zwiększ odstępy między liniami */
+    font-weight: 300;
+}
